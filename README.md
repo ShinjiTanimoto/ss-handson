@@ -1,150 +1,41 @@
 SHIRASAGI
 =========
 
+## ハンズオン用シラサギリポジトリ
+ * 作成中
+
 SHIRASAGI is Contents Management System.
-
-Code Status
------------
-
-[![Build Status](https://travis-ci.org/shirasagi/shirasagi.svg?branch=master)](https://travis-ci.org/shirasagi/shirasagi)
-[![Code Climate](https://codeclimate.com/github/shirasagi/shirasagi/badges/gpa.svg)](https://codeclimate.com/github/shirasagi/shirasagi)
-[![Coverage Status](https://coveralls.io/repos/shirasagi/shirasagi/badge.png)](https://coveralls.io/r/shirasagi/shirasagi)
-[![GitHub version](https://badge.fury.io/gh/shirasagi%2Fshirasagi.svg)](http://badge.fury.io/gh/shirasagi%2Fshirasagi)
-[![Inline docs](http://inch-ci.org/github/shirasagi/shirasagi.png?branch=master)](http://inch-ci.org/github/shirasagi/shirasagi)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shirasagi/shirasagi?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Stories in Ready](https://badge.waffle.io/shirasagi/shirasagi.svg?label=ready&title=Ready)](http://waffle.io/shirasagi/shirasagi)
-
-Documentation
--------------
-
-- [公式サイト](http://ss-proj.org/)
-- [開発マニュアル](http://shirasagi.github.io/)
 
 Platform
 --------
 
-- CentOS, Ubuntu
-- Ruby 2.3
-- Ruby on Rails 4
-- MongoDB 3
-- Unicorn
+Ruby on Rails, MongoDB
 
-Installation (Auto)
--------------------
+Documentation
+-------------
 
-```
-$ su - user-which-executes-shirasagi-server
-$ curl https://raw.githubusercontent.com/shirasagi/shirasagi/master/bin/install.sh | SS_HOSTNAME=example.jp bash -s
-```
+* [Official](http://ss-proj.org)
+* [Install](https://github.com/shirasagi/shirasagi/blob/master/doc/install.txt)
 
-Installation (CentOS 7)
------------------------
+License
+-------
 
-拡張機能（ふりがな、読み上げ、オープンデータ等）や詳細なインストール手順は[開発マニュアル](http://shirasagi.github.io/)をご確認ください。
+Copyright (c) 2014 SHIRASAGI Project
 
-### パッケージのダウンロード
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-```
-$ su -
-# yum -y install wget git ImageMagick ImageMagick-devel
-```
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-### MongoDB のインストール
-
-```
-# vi /etc/yum.repos.d/mongodb-org-3.2.repo
-```
-
-```
-[mongodb-org-3.2]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
-gpgcheck=0
-enabled=0
-```
-
-```
-# yum install -y --enablerepo=mongodb-org-3.2 mongodb-org
-# systemctl start mongod
-# systemctl enable mongod
-```
-
-### Ruby(RVM) のインストール
-
-```
-# gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-# \curl -sSL https://get.rvm.io | sudo bash -s stable
-# source /etc/profile
-# rvm install 2.3.0
-# rvm use 2.3.0 --default
-# gem install bundler
-```
-
-### SHIRASAGI のインストール
-
-SHIRASAGI のダウンロード (stable)
-
-```
-$ git clone -b stable --depth 1 https://github.com/shirasagi/shirasagi /var/www/shirasagi
-```
-
-設定ファイルの設置と gem のインストール
-
-```
-$ cd /var/www/shirasagi
-$ cp -n config/samples/*.{yml,rb} config/
-$ bundle install --without development test
-```
-
-Web サーバの起動
-
-```
-$ rake unicorn:start
-```
-
-## サイトの作成
-
-データベース（インデックス）の作成
-
-```
-$ rake db:drop
-$ rake db:create_indexes
-```
-
-新規サイトの追加
-
-```
-$ rake ss:create_site data='{ name: "サイト名", host: "www", domains: "localhost:3000" }'
-```
-
-サンプルデータ (自治体サンプル) の投入
-
-```
-$ rake db:seed name=demo site=www
-```
-
-## サイトの確認
-
-#### 管理画面
-
-http://localhost:3000/.mypage にアクセスするとログイン画面が表示されます。<br />
-サイト名のリンクをクリックすると、登録したデモデータを確認・編集することができます。<br />
-[ ユーザーID： admin , パスワード： pass ]
-
-#### 公開画面
-
-http://localhost:3000/ にアクセスすると登録したデモサイトが表示されます。
-
-## 開発・テスト環境
-
-`.env`というファイルをプロジェクトルートに用意すれば各種設定をお好みのものに切り替えられます。
-
-(設定例)
-
-- デフォルトで`warn`になっているログレベルを`debug`にしたい場合。
-- テスト時にデフォルトで実行されるカバレッジ計測を省きたい場合。
-
-```
-DEVELOPMENT_LOG_LEVEL=debug
-ANALYZE_COVERAGE=disabled
-```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
