@@ -314,6 +314,7 @@ ja:
       cms/opendata_ref/license: オープンデータ/ライセンス
       cms/monthly_nav: アーカイブナビ（月次）
       cms/archive_view_switcher: アーカイブ用表示設定
+      cms/weather: 天気
 
   mongoid:
     models:
@@ -534,6 +535,8 @@ ja:
         periods: 表示期間
       cms/addon/archive_view_switcher:
         archive_view: 表示設定
+      cms/addon/weather:
+        weather: 天気
 
   errors:
     messages:
@@ -1132,6 +1135,10 @@ ja:
           oshirase
           oshirase/event
           shisei/jinji
+
+    cms/addon/weather:
+      weather:
+        - 天気を選択します。
 
   all_content:
     page_id: ページID
