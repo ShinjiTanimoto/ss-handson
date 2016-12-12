@@ -9,9 +9,11 @@ module Contact::Addon
       field :contact_tel, type: String
       field :contact_fax, type: String
       field :contact_email, type: String
+      field :contact_night_window, type: String
       belongs_to :contact_group, class_name: "SS::Group"
       permit_params :contact_state, :contact_group_id, :contact_charge
       permit_params :contact_tel, :contact_fax, :contact_email
+      permit_params :contact_night_window
     end
 
     def contact_state_options

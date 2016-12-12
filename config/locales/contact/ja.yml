@@ -17,6 +17,7 @@ ja:
       tel: 電話
       fax: Fax
       email: E-Mail
+      night_window: 夜間窓口
 
   modules:
     contact: 連絡先
@@ -34,6 +35,7 @@ ja:
         contact_tel: 電話番号
         contact_fax: ファックス番号
         contact_email: メールアドレス
+        contact_night_window: 夜間窓口
       contact/addon/group:
         <<: *cmspage
       contact/addon/page:
@@ -53,6 +55,8 @@ ja:
         - 連絡先に表示する部署のファックス番号を記入します。
       contact_email:
         - 連絡先に表示する部署または担当者のメールアドレスを記入します。
+      contact_night_window:
+        - 連絡先に表示する夜間窓口を記入します。
     contact/addon/group:
       contact_tel:
         - グループの電話番号を記入します。

@@ -47,4 +47,7 @@
 
   <dt><%= @model.t :contact_email %><%= @model.tt :contact_email %></dt>
   <dd><%= f.text_field :contact_email, value: (params[:action] =~ /new/) ? @cur_group[:contact_email] : @item.contact_email %></dd>
+
+  <dt><%= @model.t :contact_night_window %><%= @model.tt :contact_night_window %></dt>
+  <dd><%= f.text_field :contact_night_window %></dd>
 </dl>
