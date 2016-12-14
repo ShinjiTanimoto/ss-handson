@@ -1,6 +1,7 @@
 module Article
   class Initializer
     Cms::Node.plugin "article/page"
+    Cms::Node.plugin "article/weather_search"
     Cms::Part.plugin "article/page"
 
     Cms::Role.permission :read_other_article_pages
